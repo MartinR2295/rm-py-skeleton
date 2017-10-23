@@ -42,6 +42,12 @@ class RMOptManager(object):
 				return True
 		return False
 	
+	def getArgument(self, option):
+		for opt, arg in self.opts:
+			if opt in ("-"+option.shortIdentifier, "--"+option.longIdentifier):
+				return arg
+		return None
+	
 	def usage(self):
 		print("")
 		RMColorManager().printBold("Usage of the "+self.scriptName+" Script")
